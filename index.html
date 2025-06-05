@@ -47,7 +47,7 @@
     }
 
     h1, h2, h3 {
-      color: #0072BB; /* 🔶 Remplacé par le bleu du logo si différent */
+      color: #0072BB;
     }
 
     section {
@@ -132,43 +132,46 @@
 
   <header>
     <img src="logo-e3D-2.png" alt="Logo EXPAIR 3D FRANCE" />
-    <h1>EXPAIR 3D FRANCE</h1>
-    <p>Entreprise basée à Meylan - Captures 3D par scanner LiDAR & drones</p>
+    <h1 data-fr="EXPAIR 3D FRANCE" data-en="EXPAIR 3D FRANCE">EXPAIR 3D FRANCE</h1>
+    <p data-fr="Entreprise basée à Meylan - Captures 3D par scanner LiDAR & drones"
+       data-en="Company based in Meylan - 3D capture using LiDAR scanners & drones">
+       Entreprise basée à Meylan - Captures 3D par scanner LiDAR & drones
+    </p>
     <div class="lang-switcher">
       <button onclick="setLanguage('fr')">FR</button>
       <button onclick="setLanguage('en')">EN</button>
     </div>
-    <a href="#about" class="scroll-btn">En savoir plus ↓</a>
+    <a href="#about" class="scroll-btn" data-fr="En savoir plus ↓" data-en="Learn more ↓">En savoir plus ↓</a>
   </header>
 
   <section id="about">
-    <h2>Qui sommes-nous ?</h2>
-    <p>
-      <!-- 🔶 Présentation de l'entreprise (texte à personnaliser si besoin) -->
-      EXPAIR 3D FRANCE est une entreprise spécialisée dans la capture 3D à la demande...
+    <h2 data-fr="Qui sommes-nous ?" data-en="Who are we?">Qui sommes-nous ?</h2>
+    <p data-fr="EXPAIR 3D FRANCE est une entreprise spécialisée dans la capture 3D à la demande..."
+       data-en="EXPAIR 3D FRANCE is a company specialized in on-demand 3D capture...">
+       EXPAIR 3D FRANCE est une entreprise spécialisée dans la capture 3D à la demande...
     </p>
   </section>
 
   <section class="missions">
-    <h2>Nos missions</h2>
+    <h2 data-fr="Nos missions" data-en="Our missions">Nos missions</h2>
     <ul>
-      <li>
+      <li data-fr="Scan photogrammétrique extérieur" data-en="Outdoor photogrammetric scanning">
         Scan photogrammétrique extérieur
-        <img src="la-berarde.png" alt="Scan photogrammétrique extérieur"> 
+        <img src="la-berarde.png" alt="Scan photogrammétrique extérieur">
       </li>
-      <li>
+      <li data-fr="Scans 3D d’intérieur" data-en="Interior 3D scans">
         Scans 3D d’intérieur
         <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.png" alt="Scans 3D d’intérieur">
       </li>
-      <li>
+      <li data-fr="Plans 2D et maquettes 3D à partir de nuages de points" data-en="2D plans and 3D models from point clouds">
         Plans 2D et maquettes 3D à partir de nuages de points
         <img src="plan-2d.jpg" alt="Plans 2D et maquettes 3D">
       </li>
-      <li>
+      <li data-fr="Visites virtuelles, simulations BIM" data-en="Virtual tours, BIM simulations">
         Visites virtuelles, simulations BIM
         <img src="mission4.jpg" alt="Visites virtuelles, simulations BIM">
       </li>
-      <li>
+      <li data-fr="DQE pour la reconstruction de bâtiments sinistrés" data-en="BOQ for reconstruction of damaged buildings">
         DQE pour la reconstruction de bâtiments sinistrés
         <img src="mission5.jpg" alt="DQE pour la reconstruction">
       </li>
@@ -176,24 +179,29 @@
   </section>
 
   <section class="projets">
-    <h2>Projets réalisés</h2>
-    <p>Voici quelques exemples de nos réalisations :</p>
-    <img src="projet1.jpg" alt="Projet 1"> <!-- 🔶 À remplacer -->
+    <h2 data-fr="Projets réalisés" data-en="Projects completed">Projets réalisés</h2>
+    <p data-fr="Voici quelques exemples de nos réalisations :" data-en="Here are some examples of our work:">
+      Voici quelques exemples de nos réalisations :
+    </p>
+    <img src="projet1.jpg" alt="Projet 1">
     <img src="projet2.jpg" alt="Projet 2">
     <img src="projet3.jpg" alt="Projet 3">
   </section>
 
   <section class="partenaires">
-    <h2>Partenaires & Clients</h2>
-    <p>Ils nous font confiance :</p>
-    <img src="partenaire1.png" alt="Partenaire 1"> <!-- 🔶 À remplacer -->
+    <h2 data-fr="Partenaires & Clients" data-en="Partners & Clients">Partenaires & Clients</h2>
+    <p data-fr="Ils nous font confiance :" data-en="They trust us:">Ils nous font confiance :</p>
+    <img src="partenaire1.png" alt="Partenaire 1">
     <img src="partenaire2.png" alt="Partenaire 2">
     <img src="partenaire3.png" alt="Partenaire 3">
   </section>
 
   <section>
-    <h2>Contact</h2>
-    <p>Vous souhaitez travailler avec nous ? Envoyez-nous un message :</p>
+    <h2 data-fr="Contact" data-en="Contact">Contact</h2>
+    <p data-fr="Vous souhaitez travailler avec nous ? Envoyez-nous un message :"
+       data-en="Want to work with us? Send us a message:">
+       Vous souhaitez travailler avec nous ? Envoyez-nous un message :
+    </p>
     <form action="mailto:contact@expair3d-france.fr" method="post" enctype="text/plain">
       <input type="text" name="nom" placeholder="Votre nom" required>
       <input type="email" name="email" placeholder="Votre email" required>
@@ -208,10 +216,15 @@
 
   <script>
     function setLanguage(lang) {
-      alert('Fonction de changement de langue non encore activée. Langue sélectionnée : ' + lang);
-      // 🔶 Ici, tu pourras ajouter une vraie gestion de traduction plus tard
+      document.querySelectorAll('[data-fr]').forEach(el => {
+        el.textContent = el.getAttribute('data-' + lang);
+      });
     }
   </script>
+
+</body>
+</html>
+
 
 </body>
 </html>
