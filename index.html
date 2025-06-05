@@ -42,9 +42,9 @@
       z-index: 2;
     }
 
-    header img {
-      max-width: 200px;
-      background-color: transparent;
+    header svg {
+      width: 180px;
+      height: auto;
     }
 
     .lang-switcher {
@@ -145,8 +145,10 @@
 </head>
 <body>
 
-  <header>
-    <img src="logo-e3D.png" alt="Logo EXPAIR 3D FRANCE" />
+  <header id="top">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 40" fill="none">
+      <text x="0" y="30" fill="#0082C6" font-size="30" font-family="Arial, sans-serif">E3D</text>
+    </svg>
     <p>Entreprise basée à Meylan - Captures 3D par scanner LiDAR & drones</p>
     <div class="lang-switcher">
       <button onclick="setLanguage('fr')">FR</button>
