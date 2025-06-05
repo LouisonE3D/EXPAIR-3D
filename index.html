@@ -1,90 +1,107 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EXPAIR 3D FRANCE</title>
   <style>
     html {
       scroll-behavior: smooth;
     }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background-color: #000;
       color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
+
     header {
       height: 100vh;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
       background: url("mavic-2-7870679_1280.jpg") no-repeat center center;
       background-size: cover;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      position: relative;
-      text-align: center;
     }
+
     header img {
-      max-width: 160px;
-      margin-bottom: 20px;
+      max-width: 300px;
     }
-    h1, h2, h3 {
-      color: #0082C6;
-    }
+
     .lang-switcher {
       position: absolute;
       top: 20px;
       right: 20px;
+      z-index: 3;
     }
+
     .lang-switcher button {
       background: #0082C6;
       color: white;
       border: none;
       padding: 8px 12px;
-      margin-left: 5px;
+      margin: 0 5px;
       cursor: pointer;
       font-size: 0.9em;
     }
-    .scroll-btn {
-      position: absolute;
-      bottom: 40px;
-      background-color: #0082C6;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-size: 1em;
+
+    h1, h2, h3 {
+      color: #0082C6;
     }
+
     section {
       padding: 60px 20px;
       max-width: 900px;
       margin: auto;
+      opacity: 0;
+      transform: translateY(100px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
     }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     .missions ul {
       list-style: none;
       padding: 0;
     }
+
     .missions li {
       margin-bottom: 20px;
     }
+
     .missions li::before {
       content: "✔️ ";
       color: #0082C6;
     }
+
+    .missions img, .missions video {
+      display: block;
+      width: 100%;
+      max-width: 600px;
+      margin: 10px 0;
+    }
+
     .missions video {
       width: 100%;
-      max-width: 800px;
-      margin-top: 15px;
-      border: 1px solid #0082C6;
+      height: auto;
     }
+
     .projets img, .partenaires img {
       width: 100px;
       margin: 10px;
       vertical-align: middle;
     }
+
     form input, form textarea, form button {
       display: block;
       width: 100%;
@@ -92,17 +109,37 @@
       margin: 10px 0;
       font-size: 1em;
     }
+
     form input, form textarea {
       background: #111;
       color: #fff;
       border: 1px solid #0082C6;
     }
+
     form button {
       background-color: #0082C6;
       color: white;
       border: none;
       cursor: pointer;
     }
+
+    .scroll-btn {
+      display: block;
+      text-align: center;
+      margin-top: auto;
+      margin-bottom: 40px;
+      padding: 10px 20px;
+      background-color: #0082C6;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      text-decoration: none;
+      z-index: 2;
+      position: relative;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -115,7 +152,6 @@
 
   <header>
     <img src="logo-e3D-2.png" alt="Logo EXPAIR 3D FRANCE" />
-    <h1 data-fr="EXPAIR 3D FRANCE" data-en="EXPAIR 3D FRANCE">EXPAIR 3D FRANCE</h1>
     <p data-fr="Entreprise basée à Meylan - Captures 3D par scanner LiDAR & drones"
        data-en="Company based in Meylan - 3D capture using LiDAR scanners & drones">
        Entreprise basée à Meylan - Captures 3D par scanner LiDAR & drones
@@ -128,70 +164,20 @@
   </header>
 
   <section id="about">
-    <h2 data-fr="Qui sommes-nous ?" data-en="Who we are?">Qui sommes-nous ?</h2>
-    <p data-fr="EXPAIR 3D FRANCE est une entreprise spécialisée dans la captation 3D à la demande à l’aide de drones et de scanners LiDAR. Nous travaillons avec les experts d’assurance, architectes, maîtres d’œuvre, bureaux d’études, et huissiers de justice."
-       data-en="EXPAIR 3D FRANCE is a company specialized in on-demand 3D capture using drones and LiDAR scanners. We work with insurance experts, architects, contractors, engineering firms, and legal officers.">
-       EXPAIR 3D FRANCE est une entreprise spécialisée dans la captation 3D à la demande à l’aide de drones et de scanners LiDAR.
-    </p>
+    <h2>À propos</h2>
+    <p>Contenu de la section à propos...</p>
   </section>
 
   <section class="missions">
-    <h2 data-fr="Nos missions" data-en="Our missions">Nos missions</h2>
+    <h2>Nos missions</h2>
     <ul>
-      <li data-fr="Consignation/Reconstruction après sinistre"
-          data-en="Post-disaster assessment & reconstruction">
-          Consignation/Reconstruction après sinistre
-          <p data-fr="Nous réalisons des relevés détaillés après sinistre afin d’établir des constats fiables et préparer une reconstruction précise."
-             data-en="We carry out detailed surveys after disasters to establish accurate assessments and prepare precise reconstruction.">
-             Nous réalisons des relevés détaillés après sinistre afin d’établir des constats fiables et préparer une reconstruction précise.
-          </p>
-      </li>
-      <li data-fr="Scans 3D d’intérieur" data-en="Interior 3D scans">
-        Scans 3D d’intérieur
-        <video src="Simulation video.mp4" autoplay loop muted playsinline></video>
-      </li>
-      <li data-fr="Plans 2D et maquettes 3D à partir de nuages de points"
-          data-en="2D plans and 3D models from point clouds">
-          Plans 2D et maquettes 3D à partir de nuages de points
-      </li>
-      <li data-fr="Visites virtuelles, simulations BIM"
-          data-en="Virtual tours, BIM simulations">
-          Visites virtuelles, simulations BIM
-      </li>
-      <li data-fr="DQE pour la reconstruction de bâtiments sinistrés"
-          data-en="Bill of quantities for reconstruction">
-          DQE pour la reconstruction de bâtiments sinistrés
-      </li>
+      <li>Mission 1</li>
+      <li>Mission 2</li>
     </ul>
   </section>
 
-  <section class="projets">
-    <h2>Projets réalisés</h2>
-    <p>Voici quelques exemples de nos réalisations :</p>
-    <img src="projet1.jpg" alt="Projet 1">
-    <img src="projet2.jpg" alt="Projet 2">
-  </section>
-
-  <section class="partenaires">
-    <h2>Partenaires & Clients</h2>
-    <p>Ils nous font confiance :</p>
-    <img src="partenaire1.png" alt="Partenaire 1">
-    <img src="partenaire2.png" alt="Partenaire 2">
-  </section>
-
-  <section>
-    <h2>Contact</h2>
-    <p>Vous souhaitez travailler avec nous ? Envoyez-nous un message :</p>
-    <form action="mailto:contact@expair3d-france.fr" method="post" enctype="text/plain">
-      <input type="text" name="nom" placeholder="Votre nom" required>
-      <input type="email" name="email" placeholder="Votre email" required>
-      <textarea name="message" rows="5" placeholder="Votre message..." required></textarea>
-      <button type="submit">Envoyer</button>
-    </form>
-  </section>
-
   <footer>
-    &copy; 2025 EXPAIR 3D FRANCE - Tous droits réservés
+    <p>&copy; 2025 EXPAIR 3D FRANCE - Tous droits réservés</p>
   </footer>
 
   <script>
@@ -200,6 +186,19 @@
         el.textContent = el.getAttribute('data-' + lang);
       });
     }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
   </script>
+
 </body>
 </html>
