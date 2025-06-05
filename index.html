@@ -18,33 +18,33 @@
     }
 
     header {
-  position: relative;
-  height: 100vh;
-  text-align: center;
-  color: white;
-  background: url("mavic-2-7870679_1280.jpg") no-repeat center center/cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+      position: relative;
+      height: 100vh;
+      text-align: center;
+      color: white;
+      background: url("mavic-2-7870679_1280.jpg") no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-header::after {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6); /* filtre sombre */
-  z-index: 1;
-}
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
 
-header * {
-  position: relative;
-  z-index: 2;
-}
-
+    header * {
+      position: relative;
+      z-index: 2;
+    }
 
     header img {
-      max-width: 150px;
+      max-width: 200px;
+      background-color: transparent;
     }
 
     .lang-switcher {
@@ -66,40 +66,26 @@ header * {
 
     h1, h2, h3 {
       color: #0082C6;
+      text-align: center;
     }
-
-  h1 {
-  color: #00B8F1;
-  font-size: 3em;
-  margin-top: 20px;
-}
-
 
     section {
       padding: 60px 20px;
       max-width: 900px;
       margin: auto;
+      text-align: center;
     }
 
-    .missions ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .missions li {
-      margin-bottom: 20px;
-    }
-
-    .missions li::before {
-      content: "✔️ ";
-      color: #0082C6;
-    }
-
-    .missions img {
-      display: block;
+    .missions video, .missions img {
       width: 100%;
-      max-width: 600px;
-      margin: 10px 0;
+      height: auto;
+      margin-top: 20px;
+      border-radius: 8px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .missions video:hover, .missions img:hover {
+      transform: scale(1.03);
     }
 
     .projets img, .partenaires img {
@@ -129,9 +115,8 @@ header * {
       cursor: pointer;
     }
 
-    .scroll-btn {
-      display: block;
-      text-align: center;
+    .scroll-btn, .back-to-top {
+      display: inline-block;
       margin: 20px auto;
       padding: 10px 20px;
       background-color: #0082C6;
@@ -141,8 +126,13 @@ header * {
       font-size: 1em;
       cursor: pointer;
       text-decoration: none;
-      z-index: 2;
-      position: relative;
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 100;
     }
 
     footer {
@@ -157,7 +147,6 @@ header * {
 
   <header>
     <img src="logo%20e3D%202.png" alt="Logo EXPAIR 3D FRANCE" />
-    <h1>EXPAIR 3D FRANCE</h1>
     <p>Entreprise basée à Meylan - Captures 3D par scanner LiDAR & drones</p>
     <div class="lang-switcher">
       <button onclick="setLanguage('fr')">FR</button>
@@ -167,8 +156,8 @@ header * {
   </header>
 
   <section id="about">
-    <h2>Qui sommes-nous ?</h2>
-    <p>
+    <h2 data-i18n="about_title">Qui sommes-nous ?</h2>
+    <p data-i18n="about_desc">
       EXPAIR 3D FRANCE est une entreprise spécialisée dans la captation 3D à la demande à l’aide de drones et de scanners LiDAR.
       Nous travaillons avec les experts d’assurance, architectes, maîtres d’œuvre, bureaux d’études, et huissiers de justice pour
       fournir des relevés précis et exploitables dans de nombreux contextes.
@@ -176,68 +165,85 @@ header * {
   </section>
 
   <section class="missions">
-    <h2>Nos missions</h2>
-    <ul>
-      <li>
-        Scan photogrammétrique extérieur
-        <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.png" alt="Scan photogrammétrique extérieur">
-      </li>
-      <li>
-        Scans 3D d’intérieur
-        <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.png" alt="Scans 3D d’intérieur">
-      </li>
-      <li>
-        Plans 2D et maquettes 3D à partir de nuages de points
-        <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.png" alt="Plans 2D et maquettes 3D">
-      </li>
-      <li>
-        Visites virtuelles, simulations BIM
-        <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.png" alt="Visites virtuelles, simulations BIM">
-      </li>
-      <li>
-        DQE pour la reconstruction de bâtiments sinistrés
-        <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.png" alt="DQE pour la reconstruction">
-      </li>
-    </ul>
-  </section>
+    <h2 data-i18n="missions_title">Nos missions</h2>
 
-  <section class="projets">
-    <h2>Projets réalisés</h2>
-    <p>Voici quelques exemples de nos réalisations :</p>
-    <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.png" alt="Projet 1">
-    <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.png" alt="Projet 2">
-    <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.png" alt="Projet 3">
+    <h3 data-i18n="mission1_title">Consignation / Reconstruction après sinistre</h3>
+    <p data-i18n="mission1_desc">Relevés 3D détaillés pour accompagner les démarches post-sinistre avec précision et fiabilité.</p>
+    <video autoplay muted loop playsinline>
+      <source src="Simulation video.mp4" type="video/mp4">
+      Votre navigateur ne supporte pas la lecture de vidéos.
+    </video>
+
+    <h3 data-i18n="mission2_title">Inspection / Intervention en milieux périlleux</h3>
+    <p data-i18n="mission2_desc">Interventions en hauteur ou en zones difficilement accessibles à l’aide de drones et de capteurs spécialisés.</p>
+    <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.jpg" alt="Inspection">
+
+    <h3 data-i18n="mission3_title">Assistance aux communes en catastrophe naturelle</h3>
+    <p data-i18n="mission3_desc">Surveillance et documentation des dégâts avec livrables exploitables pour les décisions d’urgence.</p>
+    <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.jpg" alt="Catastrophe naturelle">
+
+    <h3 data-i18n="mission4_title">Maquette / Simulation BIM</h3>
+    <p data-i18n="mission4_desc">Création de modèles 3D intégrés aux processus BIM pour une gestion optimale des projets.</p>
+    <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.jpg" alt="BIM">
   </section>
 
   <section class="partenaires">
-    <h2>Partenaires & Clients</h2>
-    <p>Ils nous font confiance :</p>
+    <h2 data-i18n="partners_title">Partenaires & Clients</h2>
+    <p data-i18n="partners_desc">Ils nous font confiance :</p>
     <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.png" alt="Partenaire 1">
     <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.png" alt="Partenaire 2">
     <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.png" alt="Partenaire 3">
   </section>
 
-  <section>
-    <h2>Contact</h2>
-    <p>Vous souhaitez travailler avec nous ? Envoyez-nous un message :</p>
+  <section id="contact">
+    <h2 data-i18n="contact_title">Contact</h2>
+    <p data-i18n="contact_desc">Vous souhaitez travailler avec nous ? Envoyez-nous un message :</p>
     <form action="mailto:contact@expair3d-france.fr" method="post" enctype="text/plain">
       <input type="text" name="nom" placeholder="Votre nom" required>
       <input type="email" name="email" placeholder="Votre email" required>
       <textarea name="message" rows="5" placeholder="Votre message..." required></textarea>
-      <button type="submit">Envoyer</button>
+      <button type="submit" data-i18n="send">Envoyer</button>
     </form>
   </section>
+
+  <a href="#top" class="back-to-top">↑</a>
 
   <footer>
     &copy; 2025 EXPAIR 3D FRANCE - Tous droits réservés
   </footer>
 
   <script>
+    const translations = {
+      en: {
+        "Qui sommes-nous ?": "Who are we?",
+        "Nos missions": "Our Missions",
+        "Consignation / Reconstruction après sinistre": "Damage Assessment / Post-Disaster Reconstruction",
+        "Relevés 3D détaillés pour accompagner les démarches post-sinistre avec précision et fiabilité.": "Detailed 3D scans to support post-disaster procedures with precision and reliability.",
+        "Inspection / Intervention en milieux périlleux": "Inspection / Intervention in Hazardous Environments",
+        "Interventions en hauteur ou en zones difficilement accessibles à l’aide de drones et de capteurs spécialisés.": "Operations in hard-to-reach or dangerous areas using drones and specialized sensors.",
+        "Assistance aux communes en catastrophe naturelle": "Support for Municipalities During Natural Disasters",
+        "Surveillance et documentation des dégâts avec livrables exploitables pour les décisions d’urgence.": "Damage assessment and documentation with actionable reports for emergency decision-making.",
+        "Maquette / Simulation BIM": "BIM Modeling / Simulation",
+        "Création de modèles 3D intégrés aux processus BIM pour une gestion optimale des projets.": "3D modeling integrated into BIM workflows for optimized project management.",
+        "Partenaires & Clients": "Partners & Clients",
+        "Ils nous font confiance :": "They trust us:",
+        "Contact": "Contact",
+        "Vous souhaitez travailler avec nous ? Envoyez-nous un message :": "Want to work with us? Send us a message:",
+        "Envoyer": "Send"
+      }
+    };
+
     function setLanguage(lang) {
-      alert('Fonction de changement de langue non encore activée. Langue sélectionnée : ' + lang);
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[lang] && translations[lang][el.innerText]) {
+          el.innerText = translations[lang][el.innerText];
+        } else if (translations[lang] && translations[lang][key]) {
+          el.innerText = translations[lang][key];
+        }
+      });
     }
   </script>
 
 </body>
 </html>
-
