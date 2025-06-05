@@ -146,43 +146,34 @@
       color: #888;
     }
 
-    /* Responsive adjustments */
     @media (max-width: 768px) {
       header {
         padding: 20px;
       }
-
       header img {
         max-width: 200px;
       }
-
       .missions video, .missions img {
         height: auto;
       }
-
       .scroll-btn {
         font-size: 0.9em;
         padding: 8px 16px;
       }
-
       .lang-switcher button {
         font-size: 0.8em;
         padding: 6px 10px;
       }
-
       .contact-icon {
         font-size: 1em;
         padding: 8px;
       }
-
       h2, h3 {
         font-size: 1.2em;
       }
-
       form input, form textarea, form button {
         font-size: 0.9em;
       }
-
       .projets img, .partenaires img {
         width: 80px;
       }
@@ -190,7 +181,112 @@
   </style>
 </head>
 <body>
-  <!-- Body content unchanged -->
+  <header>
+    <a href="#contact" class="contact-icon">✉</a>
+    <div class="lang-switcher">
+      <button onclick="setLanguage('fr')">FR</button>
+      <button onclick="setLanguage('en')">EN</button>
+    </div>
+    <img src="logo-expair3d.png" alt="Logo EXPAIR 3D FRANCE">
+    <a href="#missions" class="scroll-btn" data-translate="scroll">En savoir plus</a>
+  </header>
+
+  <section class="missions" id="missions">
+    <div class="mission-block">
+      <h2 data-translate="mission1-title">Consignation / Reconstruction après sinistre</h2>
+      <p data-translate="mission1-desc">Captation des dégâts et élaboration de maquette pour la réhabilitation de bâtiments endommagés.</p>
+      <video autoplay muted loop>
+        <source src="Simulation%20video.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la vidéo.
+      </video>
+    </div>
+    <div class="mission-block">
+      <h2 data-translate="mission2-title">Inspection / Intervention en milieux périlleux</h2>
+      <p data-translate="mission2-desc">Utilisation de drones pour accéder à des zones dangereuses, inaccessibles aux équipes humaines.</p>
+      <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.png" alt="Scan intérieur">
+    </div>
+    <div class="mission-block">
+      <h2 data-translate="mission3-title">Assistance aux communes en catastrophe naturelle</h2>
+      <p data-translate="mission3-desc">Support cartographique et topographique rapide pour la gestion de crise et l’évaluation des dégâts.</p>
+      <img src="exterieur.jpg" alt="Mission Catastrophe">
+    </div>
+    <div class="mission-block">
+      <h2 data-translate="mission4-title">Maquette / Simulation BIM</h2>
+      <p data-translate="mission4-desc">Création de modèles numériques 3D précis pour la planification, la maintenance ou l’extension d’infrastructures.</p>
+      <img src="bim.jpg" alt="Simulation BIM">
+    </div>
+  </section>
+
+  <section class="partenaires">
+    <h2 data-translate="partners">Nos partenaires</h2>
+    <img src="partenaire1.png" alt="Partenaire 1">
+    <img src="partenaire2.png" alt="Partenaire 2">
+  </section>
+
+  <section id="contact">
+    <h2 data-translate="contact">Nous contacter</h2>
+    <form action="mailto:contact@expair3d-france.fr" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Votre nom" required>
+      <input type="email" name="email" placeholder="Votre e-mail" required>
+      <textarea name="message" placeholder="Votre message" required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 EXPAIR 3D FRANCE - Tous droits réservés
+  </footer>
+
+  <script>
+    const translations = {
+      fr: {
+        scroll: "En savoir plus",
+        mission1-title: "Consignation / Reconstruction après sinistre",
+        mission1-desc: "Captation des dégâts et élaboration de maquette pour la réhabilitation de bâtiments endommagés.",
+        mission2-title: "Inspection / Intervention en milieux périlleux",
+        mission2-desc: "Utilisation de drones pour accéder à des zones dangereuses, inaccessibles aux équipes humaines.",
+        mission3-title: "Assistance aux communes en catastrophe naturelle",
+        mission3-desc: "Support cartographique et topographique rapide pour la gestion de crise et l’évaluation des dégâts.",
+        mission4-title: "Maquette / Simulation BIM",
+        mission4-desc: "Création de modèles numériques 3D précis pour la planification, la maintenance ou l’extension d’infrastructures.",
+        partners: "Nos partenaires",
+        contact: "Nous contacter"
+      },
+      en: {
+        scroll: "Learn more",
+        mission1-title: "Documentation / Reconstruction after disaster",
+        mission1-desc: "Damage capture and model development for rebuilding damaged structures.",
+        mission2-title: "Inspection / Intervention in hazardous environments",
+        mission2-desc: "Use of drones to access areas that are dangerous or inaccessible to humans.",
+        mission3-title: "Assistance to municipalities in natural disasters",
+        mission3-desc: "Rapid cartographic and topographic support for crisis management and damage assessment.",
+        mission4-title: "BIM Modeling / Simulation",
+        mission4-desc: "Creation of accurate 3D digital models for planning, maintenance, or infrastructure expansion.",
+        partners: "Our Partners",
+        contact: "Contact us"
+      }
+    };
+
+    function setLanguage(lang) {
+      document.querySelectorAll('[data-translate]').forEach(el => {
+        const key = el.getAttribute('data-translate');
+        el.textContent = translations[lang][key];
+      });
+      document.documentElement.lang = lang;
+    }
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll("section").forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>
 
