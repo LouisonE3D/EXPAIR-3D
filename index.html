@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -19,30 +18,12 @@
     }
 
     header {
-  position: relative;
-  height: 100vh;
-  text-align: center;
-  color: white;
-  background: url("fond-drone-belledonne.jpg") no-repeat center center/cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-header::after {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6); /* filtre sombre */
-  z-index: 1;
-}
-
-header * {
-  position: relative;
-  z-index: 2;
-}
-
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      background: url("mavic-2-7870679_1280.jpg") no-repeat center center; /* 🔶 Image de fond à personnaliser */
+      background-size: cover;
+    }
 
     header img {
       max-width: 150px;
@@ -66,15 +47,8 @@ header * {
     }
 
     h1, h2, h3 {
-      color: #0082C6;
+      color: #0072BB; /* 🔶 Remplacé par le bleu du logo si différent */
     }
-
-  h1 {
-  color: #00B8F1;
-  font-size: 3em;
-  margin-top: 20px;
-}
-
 
     section {
       padding: 60px 20px;
@@ -157,7 +131,7 @@ header * {
 <body>
 
   <header>
-    <img src="logo%20e3D%202.png" alt="Logo EXPAIR 3D FRANCE" />
+    <img src="logo-e3D-2.png" alt="Logo EXPAIR 3D FRANCE" /> <!-- 🔶 Mettre ici le bon chemin vers le logo -->
     <h1>EXPAIR 3D FRANCE</h1>
     <p>Entreprise basée à Meylan - Captures 3D par scanner LiDAR & drones</p>
     <div class="lang-switcher">
@@ -170,9 +144,8 @@ header * {
   <section id="about">
     <h2>Qui sommes-nous ?</h2>
     <p>
-      EXPAIR 3D FRANCE est une entreprise spécialisée dans la captation 3D à la demande à l’aide de drones et de scanners LiDAR.
-      Nous travaillons avec les experts d’assurance, architectes, maîtres d’œuvre, bureaux d’études, et huissiers de justice pour
-      fournir des relevés précis et exploitables dans de nombreux contextes.
+      <!-- 🔶 Présentation de l'entreprise (texte à personnaliser si besoin) -->
+      EXPAIR 3D FRANCE est une entreprise spécialisée dans la capture 3D à la demande...
     </p>
   </section>
 
@@ -181,7 +154,7 @@ header * {
     <ul>
       <li>
         Scan photogrammétrique extérieur
-        <img src="mission1.jpg" alt="Scan photogrammétrique extérieur">
+        <img src="la-berarde.png" alt="Scan photogrammétrique extérieur"> <!-- 🔶 À remplacer par votre propre image -->
       </li>
       <li>
         Scans 3D d’intérieur
@@ -189,7 +162,7 @@ header * {
       </li>
       <li>
         Plans 2D et maquettes 3D à partir de nuages de points
-        <img src="mission3.jpg" alt="Plans 2D et maquettes 3D">
+        <img src="plan-2d.jpg" alt="Plans 2D et maquettes 3D">
       </li>
       <li>
         Visites virtuelles, simulations BIM
@@ -205,7 +178,7 @@ header * {
   <section class="projets">
     <h2>Projets réalisés</h2>
     <p>Voici quelques exemples de nos réalisations :</p>
-    <img src="projet1.jpg" alt="Projet 1">
+    <img src="projet1.jpg" alt="Projet 1"> <!-- 🔶 À remplacer -->
     <img src="projet2.jpg" alt="Projet 2">
     <img src="projet3.jpg" alt="Projet 3">
   </section>
@@ -213,7 +186,7 @@ header * {
   <section class="partenaires">
     <h2>Partenaires & Clients</h2>
     <p>Ils nous font confiance :</p>
-    <img src="partenaire1.png" alt="Partenaire 1">
+    <img src="partenaire1.png" alt="Partenaire 1"> <!-- 🔶 À remplacer -->
     <img src="partenaire2.png" alt="Partenaire 2">
     <img src="partenaire3.png" alt="Partenaire 3">
   </section>
@@ -236,8 +209,10 @@ header * {
   <script>
     function setLanguage(lang) {
       alert('Fonction de changement de langue non encore activée. Langue sélectionnée : ' + lang);
+      // 🔶 Ici, tu pourras ajouter une vraie gestion de traduction plus tard
     }
   </script>
 
 </body>
 </html>
+
