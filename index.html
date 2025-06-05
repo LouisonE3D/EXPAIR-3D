@@ -15,25 +15,36 @@
       background-color: #000;
       color: #fff;
       line-height: 1.6;
-      overflow-x: hidden;
     }
 
     header {
-      height: 100vh;
-      text-align: center;
-      padding: 40px 20px;
-      position: relative;
-      background: url("mavic-2-7870679_1280.jpg") no-repeat center center;
-      background-size: cover;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
+  position: relative;
+  height: 100vh;
+  text-align: center;
+  color: white;
+  background: url("mavic-2-7870679_1280.jpg") no-repeat center center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* filtre sombre */
+  z-index: 1;
+}
+
+header * {
+  position: relative;
+  z-index: 2;
+}
+
 
     header img {
-      max-width: 300px;
-      background-color: transparent;
+      max-width: 150px;
     }
 
     .lang-switcher {
@@ -53,54 +64,42 @@
       font-size: 0.9em;
     }
 
-    .contact-icon {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background: #0082C6;
-      color: white;
-      padding: 10px;
-      border-radius: 50%;
-      font-size: 1.2em;
-      text-decoration: none;
-      z-index: 3;
-    }
-
     h1, h2, h3 {
       color: #0082C6;
-      text-align: center;
     }
+
+  h1 {
+  color: #00B8F1;
+  font-size: 3em;
+  margin-top: 20px;
+}
+
 
     section {
       padding: 60px 20px;
       max-width: 900px;
       margin: auto;
-      opacity: 0;
-      transform: translateY(100px);
-      transition: opacity 1s ease-out, transform 1s ease-out;
     }
 
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .missions ul {
+      list-style: none;
+      padding: 0;
     }
 
-    .missions .mission-block {
-      margin-bottom: 60px;
-      text-align: center;
+    .missions li {
+      margin-bottom: 20px;
     }
 
-    .missions video, .missions img {
-      width: 100%;
-      height: 100vh;
-      object-fit: cover;
+    .missions li::before {
+      content: "✔️ ";
+      color: #0082C6;
+    }
+
+    .missions img {
       display: block;
-      margin: 20px 0;
-      transition: transform 0.3s ease-in-out;
-    }
-
-    .missions video:hover, .missions img:hover {
-      transform: scale(1.03);
+      width: 100%;
+      max-width: 600px;
+      margin: 10px 0;
     }
 
     .projets img, .partenaires img {
@@ -133,8 +132,7 @@
     .scroll-btn {
       display: block;
       text-align: center;
-      margin-top: auto;
-      margin-bottom: 40px;
+      margin: 20px auto;
       padding: 10px 20px;
       background-color: #0082C6;
       color: white;
@@ -147,82 +145,99 @@
       position: relative;
     }
 
-    .back-to-top {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #0082C6;
-      color: white;
-      padding: 10px;
-      border-radius: 50%;
-      font-size: 1.2em;
-      cursor: pointer;
-      display: none;
-      z-index: 999;
-    }
-
     footer {
       text-align: center;
       padding: 20px;
       font-size: 0.9em;
       color: #888;
     }
-
-    @media (max-width: 768px) {
-      header {
-        padding: 20px;
-      }
-      header img {
-        max-width: 200px;
-      }
-      .missions video, .missions img {
-        height: auto;
-      }
-      .scroll-btn {
-        font-size: 0.9em;
-        padding: 8px 16px;
-      }
-      .lang-switcher button {
-        font-size: 0.8em;
-        padding: 6px 10px;
-      }
-      .contact-icon {
-        font-size: 1em;
-        padding: 8px;
-      }
-      h2, h3 {
-        font-size: 1.2em;
-      }
-      form input, form textarea, form button {
-        font-size: 0.9em;
-      }
-      .projets img, .partenaires img {
-        width: 80px;
-      }
-    }
   </style>
 </head>
 <body>
-  <section class="partenaires" id="partenaires">
-    <h2 data-i18n="partners_title">Nos partenaires / Clients</h2>
-    <div>
-      <img src="logo1.png" alt="Partenaire 1">
-      <img src="logo2.png" alt="Partenaire 2">
+
+  <header>
+    <img src="logo%20e3D%202.png" alt="Logo EXPAIR 3D FRANCE" />
+    <h1>EXPAIR 3D FRANCE</h1>
+    <p>Entreprise basée à Meylan - Captures 3D par scanner LiDAR & drones</p>
+    <div class="lang-switcher">
+      <button onclick="setLanguage('fr')">FR</button>
+      <button onclick="setLanguage('en')">EN</button>
     </div>
+    <a href="#about" class="scroll-btn">En savoir plus ↓</a>
+  </header>
+
+  <section id="about">
+    <h2>Qui sommes-nous ?</h2>
+    <p>
+      EXPAIR 3D FRANCE est une entreprise spécialisée dans la captation 3D à la demande à l’aide de drones et de scanners LiDAR.
+      Nous travaillons avec les experts d’assurance, architectes, maîtres d’œuvre, bureaux d’études, et huissiers de justice pour
+      fournir des relevés précis et exploitables dans de nombreux contextes.
+    </p>
   </section>
 
-  <section class="contact" id="contact">
-    <h2 data-i18n="contact_title">Contactez-nous</h2>
-    <form action="#" method="post">
-      <input type="text" placeholder="Nom" required data-i18n-placeholder="form_name">
-      <input type="email" placeholder="Email" required data-i18n-placeholder="form_email">
-      <textarea placeholder="Votre message" required data-i18n-placeholder="form_message"></textarea>
-      <button type="submit" data-i18n="form_submit">Envoyer</button>
+  <section class="missions">
+    <h2>Nos missions</h2>
+    <ul>
+      <li>
+        Scan photogrammétrique extérieur
+        <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.png" alt="Scan photogrammétrique extérieur">
+      </li>
+      <li>
+        Scans 3D d’intérieur
+        <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.png" alt="Scans 3D d’intérieur">
+      </li>
+      <li>
+        Plans 2D et maquettes 3D à partir de nuages de points
+        <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.png" alt="Plans 2D et maquettes 3D">
+      </li>
+      <li>
+        Visites virtuelles, simulations BIM
+        <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.png" alt="Visites virtuelles, simulations BIM">
+      </li>
+      <li>
+        DQE pour la reconstruction de bâtiments sinistrés
+        <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.png" alt="DQE pour la reconstruction">
+      </li>
+    </ul>
+  </section>
+
+  <section class="projets">
+    <h2>Projets réalisés</h2>
+    <p>Voici quelques exemples de nos réalisations :</p>
+    <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.png" alt="Projet 1">
+    <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.png" alt="Projet 2">
+    <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.png" alt="Projet 3">
+  </section>
+
+  <section class="partenaires">
+    <h2>Partenaires & Clients</h2>
+    <p>Ils nous font confiance :</p>
+    <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.png" alt="Partenaire 1">
+    <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.png" alt="Partenaire 2">
+    <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.png" alt="Partenaire 3">
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p>Vous souhaitez travailler avec nous ? Envoyez-nous un message :</p>
+    <form action="mailto:contact@expair3d-france.fr" method="post" enctype="text/plain">
+      <input type="text" name="nom" placeholder="Votre nom" required>
+      <input type="email" name="email" placeholder="Votre email" required>
+      <textarea name="message" rows="5" placeholder="Votre message..." required></textarea>
+      <button type="submit">Envoyer</button>
     </form>
   </section>
 
   <footer>
-    &copy; 2025 EXPAIR 3D FRANCE. Tous droits réservés.
+    &copy; 2025 EXPAIR 3D FRANCE - Tous droits réservés
   </footer>
+
+  <script>
+    function setLanguage(lang) {
+      alert('Fonction de changement de langue non encore activée. Langue sélectionnée : ' + lang);
+    }
+  </script>
+
 </body>
 </html>
+
