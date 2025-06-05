@@ -68,6 +68,7 @@
 
     h1, h2, h3 {
       color: #0082C6;
+      text-align: center;
     }
 
     section {
@@ -86,6 +87,7 @@
 
     .missions .mission-block {
       margin-bottom: 60px;
+      text-align: center;
     }
 
     .missions video, .missions img {
@@ -94,6 +96,11 @@
       object-fit: cover;
       display: block;
       margin: 20px 0;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .missions video:hover, .missions img:hover {
+      transform: scale(1.03);
     }
 
     .projets img, .partenaires img {
@@ -194,114 +201,29 @@
       }
     }
   </style>
-  .mission-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.mission-block h2, 
-.mission-block p {
-  max-width: 800px;
-  margin: 10px auto;
-}
-
 </head>
 <body>
-  <a href="#top" class="back-to-top" id="backToTop">⬆</a>
-  <header id="top">
-    <a href="#contact" class="contact-icon">✉️</a>
-    <div class="lang-switcher">
-      <button onclick="setLanguage('fr')">FR</button>
-      <button onclick="setLanguage('en')">EN</button>
-    </div>
-    <img src="logo-e3d.png" alt="Logo EXPAIR 3D FRANCE">
-    <a href="#missions" class="scroll-btn" data-i18n="learn_more">En savoir plus</a>
-  </header>
-
-  <section class="missions" id="missions">
-    <div class="mission-block">
-      <h2 data-i18n="mission1_title">Consignation / Reconstruction après sinistre</h2>
-      <p data-i18n="mission1_desc">Relevés 3D détaillés pour accompagner les démarches post-sinistre avec précision et fiabilité.</p>
-      <video autoplay muted loop playsinline>
-        <source src="simulation-video.mp4" type="video/mp4">
-      </video>
-    </div>
-
-    <div class="mission-block">
-      <h2 data-i18n="mission2_title">Inspection / Intervention en milieux périlleux</h2>
-      <p data-i18n="mission2_desc">Interventions en hauteur ou en zones difficilement accessibles à l’aide de drones et de capteurs spécialisés.</p>
-      <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.jpg" alt="Inspection">
-    </div>
-
-    <div class="mission-block">
-      <h2 data-i18n="mission3_title">Assistance aux communes en catastrophe naturelle</h2>
-      <p data-i18n="mission3_desc">Surveillance et documentation des dégâts avec livrables exploitables pour les décisions d’urgence.</p>
-      <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.jpg" alt="Catastrophe naturelle">
-    </div>
-
-    <div class="mission-block">
-      <h2 data-i18n="mission4_title">Maquette / Simulation BIM</h2>
-      <p data-i18n="mission4_desc">Création de modèles 3D intégrés aux processus BIM pour une gestion optimale des projets.</p>
-      <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.jpg" alt="BIM">
+  <section class="partenaires" id="partenaires">
+    <h2 data-i18n="partners_title">Nos partenaires / Clients</h2>
+    <div>
+      <img src="logo1.png" alt="Partenaire 1">
+      <img src="logo2.png" alt="Partenaire 2">
     </div>
   </section>
 
+  <section class="contact" id="contact">
+    <h2 data-i18n="contact_title">Contactez-nous</h2>
+    <form action="#" method="post">
+      <input type="text" placeholder="Nom" required data-i18n-placeholder="form_name">
+      <input type="email" placeholder="Email" required data-i18n-placeholder="form_email">
+      <textarea placeholder="Votre message" required data-i18n-placeholder="form_message"></textarea>
+      <button type="submit" data-i18n="form_submit">Envoyer</button>
+    </form>
+  </section>
+
   <footer>
-    &copy; 2025 EXPAIR 3D FRANCE - Tous droits réservés
+    &copy; 2025 EXPAIR 3D FRANCE. Tous droits réservés.
   </footer>
-
-  <script>
-    function setLanguage(lang) {
-      const elements = document.querySelectorAll('[data-i18n]');
-      const translations = {
-        fr: {
-          learn_more: "En savoir plus",
-          mission1_title: "Consignation / Reconstruction après sinistre",
-          mission1_desc: "Relevés 3D détaillés pour accompagner les démarches post-sinistre avec précision et fiabilité.",
-          mission2_title: "Inspection / Intervention en milieux périlleux",
-          mission2_desc: "Interventions en hauteur ou en zones difficilement accessibles à l’aide de drones et de capteurs spécialisés.",
-          mission3_title: "Assistance aux communes en catastrophe naturelle",
-          mission3_desc: "Surveillance et documentation des dégâts avec livrables exploitables pour les décisions d’urgence.",
-          mission4_title: "Maquette / Simulation BIM",
-          mission4_desc: "Création de modèles 3D intégrés aux processus BIM pour une gestion optimale des projets."
-        },
-        en: {
-          learn_more: "Learn more",
-          mission1_title: "Post-disaster documentation / reconstruction",
-          mission1_desc: "Detailed 3D surveys to support post-disaster procedures with precision and reliability.",
-          mission2_title: "Inspection / Intervention in hazardous environments",
-          mission2_desc: "Operations in high or hard-to-reach areas using drones and specialized sensors.",
-          mission3_title: "Assistance to municipalities in natural disasters",
-          mission3_desc: "Monitoring and documentation of damage with deliverables usable for emergency decision-making.",
-          mission4_title: "Model / BIM Simulation",
-          mission4_desc: "Creation of 3D models integrated into BIM processes for optimal project management."
-        }
-      };
-      elements.forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (translations[lang] && translations[lang][key]) {
-          el.textContent = translations[lang][key];
-        }
-      });
-    }
-
-    const sections = document.querySelectorAll('section');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    sections.forEach(section => observer.observe(section));
-
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
-    });
-  </script>
 </body>
 </html>
+
