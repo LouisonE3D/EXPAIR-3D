@@ -140,6 +140,20 @@
       position: relative;
     }
 
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #0082C6;
+      color: white;
+      padding: 10px;
+      border-radius: 50%;
+      font-size: 1.2em;
+      cursor: pointer;
+      display: none;
+      z-index: 999;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -182,13 +196,14 @@
   </style>
 </head>
 <body>
-  <header>
+  <a href="#top" class="back-to-top" id="backToTop">⬆</a>
+  <header id="top">
     <a href="#contact" class="contact-icon">✉️</a>
     <div class="lang-switcher">
       <button onclick="setLanguage('fr')">FR</button>
       <button onclick="setLanguage('en')">EN</button>
     </div>
-    <img src="logo-e3d.png" alt="Logo EXPAIR 3D FRANCE">
+    <img src="logo-e3d-transparent.png" alt="Logo EXPAIR 3D FRANCE">
     <a href="#missions" class="scroll-btn" data-i18n="learn_more">En savoir plus</a>
   </header>
 
@@ -197,22 +212,20 @@
       <h2 data-i18n="mission1_title">Consignation / Reconstruction après sinistre</h2>
       <p data-i18n="mission1_desc">Relevés 3D détaillés pour accompagner les démarches post-sinistre avec précision et fiabilité.</p>
       <video autoplay muted loop playsinline>
-        <source src="Simulation video.mp4" type="video/mp4">
+        <source src="simulation-video.mp4" type="video/mp4">
       </video>
     </div>
 
     <div class="mission-block">
       <h2 data-i18n="mission2_title">Inspection / Intervention en milieux périlleux</h2>
-     <p data-i18n="mission2_desc">Interventions en hauteur ou en zones difficilement accessibles à l’aide de drones et de capteurs spécialisés.</p>
+      <p data-i18n="mission2_desc">Interventions en hauteur ou en zones difficilement accessibles à l’aide de drones et de capteurs spécialisés.</p>
       <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.jpg" alt="Inspection">
-      
     </div>
 
     <div class="mission-block">
       <h2 data-i18n="mission3_title">Assistance aux communes en catastrophe naturelle</h2>
-         <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.jpg" alt="Catastrophe naturelle">
       <p data-i18n="mission3_desc">Surveillance et documentation des dégâts avec livrables exploitables pour les décisions d’urgence.</p>
-   
+      <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.jpg" alt="Catastrophe naturelle">
     </div>
 
     <div class="mission-block">
@@ -220,23 +233,6 @@
       <p data-i18n="mission4_desc">Création de modèles 3D intégrés aux processus BIM pour une gestion optimale des projets.</p>
       <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.jpg" alt="BIM">
     </div>
-  </section>
-
-  <section class="partenaires">
-    <h2 data-i18n="partners">Partenaires & Clients</h2>
-    <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.png" alt="Partenaire 1">
-    <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.png" alt="Partenaire 2">
-    <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.png" alt="Partenaire 3">
-  </section>
-
-  <section id="contact">
-    <h2 data-i18n="contact">Contact</h2>
-    <form action="mailto:contact@expair3d-france.fr" method="post" enctype="text/plain">
-      <input type="text" name="nom" placeholder="Votre nom" required>
-      <input type="email" name="email" placeholder="Votre email" required>
-      <textarea name="message" rows="5" placeholder="Votre message..." required></textarea>
-      <button type="submit" data-i18n="send">Envoyer</button>
-    </form>
   </section>
 
   <footer>
@@ -256,27 +252,20 @@
           mission3_title: "Assistance aux communes en catastrophe naturelle",
           mission3_desc: "Surveillance et documentation des dégâts avec livrables exploitables pour les décisions d’urgence.",
           mission4_title: "Maquette / Simulation BIM",
-          mission4_desc: "Création de modèles 3D intégrés aux processus BIM pour une gestion optimale des projets.",
-          partners: "Partenaires & Clients",
-          contact: "Contact",
-          send: "Envoyer"
+          mission4_desc: "Création de modèles 3D intégrés aux processus BIM pour une gestion optimale des projets."
         },
         en: {
           learn_more: "Learn more",
-          mission1_title: "Post-disaster Consignment / Reconstruction",
-          mission1_desc: "Detailed 3D surveys to support post-disaster efforts with accuracy and reliability.",
-          mission2_title: "Inspection / Operation in Hazardous Areas",
-          mission2_desc: "Operations in high or hard-to-reach zones using drones and specialized sensors.",
-          mission3_title: "Support to Municipalities during Natural Disasters",
-          mission3_desc: "Damage monitoring and documentation with actionable deliverables for emergency decision-making.",
-          mission4_title: "BIM Model / Simulation",
-          mission4_desc: "Creation of 3D models integrated with BIM processes for optimal project management.",
-          partners: "Partners & Clients",
-          contact: "Contact",
-          send: "Send"
+          mission1_title: "Post-disaster documentation / reconstruction",
+          mission1_desc: "Detailed 3D surveys to support post-disaster procedures with precision and reliability.",
+          mission2_title: "Inspection / Intervention in hazardous environments",
+          mission2_desc: "Operations in high or hard-to-reach areas using drones and specialized sensors.",
+          mission3_title: "Assistance to municipalities in natural disasters",
+          mission3_desc: "Monitoring and documentation of damage with deliverables usable for emergency decision-making.",
+          mission4_title: "Model / BIM Simulation",
+          mission4_desc: "Creation of 3D models integrated into BIM processes for optimal project management."
         }
       };
-
       elements.forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (translations[lang] && translations[lang][key]) {
@@ -285,7 +274,6 @@
       });
     }
 
-    // Appliquer les animations de section visibles au scroll
     const sections = document.querySelectorAll('section');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -295,13 +283,12 @@
       });
     }, { threshold: 0.1 });
 
-    sections.forEach(section => {
-      observer.observe(section);
+    sections.forEach(section => observer.observe(section));
+
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
     });
   </script>
 </body>
 </html>
-
-</body>
-</html>
-
