@@ -102,50 +102,16 @@
       transform: scale(1.03);
     }
 
-    .projets img, .partenaires img {
-      width: 100px;
-      margin: 10px;
-      vertical-align: middle;
-    }
-
-    form input, form textarea, form button {
-      display: block;
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      font-size: 1em;
-    }
-
-    form input, form textarea {
-      background: #111;
-      color: #fff;
-      border: 1px solid #0082C6;
-    }
-
-    form button {
-      background-color: #0082C6;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-
-    .scroll-btn, .back-to-top {
-      display: inline-block;
-      margin: 20px auto;
-      padding: 10px 20px;
-      background-color: #0082C6;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 1em;
-      cursor: pointer;
-      text-decoration: none;
-    }
-
     .back-to-top {
       position: fixed;
       bottom: 30px;
       right: 30px;
+      background-color: #0082C6;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
       z-index: 100;
     }
 
@@ -156,110 +122,111 @@
       color: #888;
     }
   </style>
-</head>
-<body>
-
-  <header id="top">
-    <a href="#contact" class="contact-shortcut">Contact</a>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 40" fill="none">
-      <text x="0" y="30" fill="#0082C6" font-size="30" font-family="Arial, sans-serif">E3D</text>
-    </svg>
-    <p>Entreprise basée à Meylan - Captures 3D par scanner LiDAR & drones</p>
-    <div class="lang-switcher">
-      <button onclick="setLanguage('fr')">FR</button>
-      <button onclick="setLanguage('en')">EN</button>
-    </div>
-    <a href="#about" class="scroll-btn" data-i18n="learn_more">En savoir plus ↓</a>
-  </header>
-
-  <section id="about">
-    <h2 data-i18n="about_title">Qui sommes-nous ?</h2>
-    <p data-i18n="about_desc">
-      EXPAIR 3D FRANCE est une entreprise spécialisée dans la captation 3D à la demande à l’aide de drones et de scanners LiDAR.
-      Nous travaillons avec les experts d’assurance, architectes, maîtres d’œuvre, bureaux d’études, et huissiers de justice pour
-      fournir des relevés précis et exploitables dans de nombreux contextes.
-    </p>
-  </section>
-
-  <section class="missions">
-    <h2 data-i18n="missions_title">Nos missions</h2>
-
-    <h3 data-i18n="mission1_title">Consignation / Reconstruction après sinistre</h3>
-    <p data-i18n="mission1_desc">Relevés 3D détaillés pour accompagner les démarches post-sinistre avec précision et fiabilité.</p>
-    <video autoplay muted loop playsinline>
-      <source src="simulation-video.mp4" type="video/mp4">
-    </video>
-
-    <h3 data-i18n="mission2_title">Inspection / Intervention en milieux périlleux</h3>
-    <p data-i18n="mission2_desc">Interventions en hauteur ou en zones difficilement accessibles à l’aide de drones et de capteurs spécialisés.</p>
-    <img src="la-berarde.png" alt="Inspection">
-
-    <h3 data-i18n="mission3_title">Assistance aux communes en catastrophe naturelle</h3>
-    <p data-i18n="mission3_desc">Surveillance et documentation des dégâts avec livrables exploitables pour les décisions d’urgence.</p>
-    <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.jpg" alt="Catastrophe naturelle">
-
-    <h3 data-i18n="mission4_title">Maquette / Simulation BIM</h3>
-    <p data-i18n="mission4_desc">Création de modèles 3D intégrés aux processus BIM pour une gestion optimale des projets.</p>
-    <img src="la-berarde.jpg" alt="BIM">
-  </section>
-
-  <section class="partenaires">
-    <h2 data-i18n="partners_title">Partenaires & Clients</h2>
-    <p data-i18n="partners_desc">Ils nous font confiance :</p>
-    <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.png" alt="grenoble ">
-    <img src="la-berarde.png" alt="paris ">
-    <img src="la-berarde.png" alt="vichy">
-  </section>
-
-  <section id="contact">
-    <h2 data-i18n="contact_title">Contact</h2>
-    <p data-i18n="contact_desc">Vous souhaitez travailler avec nous ? Envoyez-nous un message :</p>
-    <form action="mailto:contact@expair3d-france.fr" method="post" enctype="text/plain">
-      <input type="text" name="nom" placeholder="Votre nom" required>
-      <input type="email" name="email" placeholder="Votre email" required>
-      <textarea name="message" rows="5" placeholder="Votre message..." required></textarea>
-      <button type="submit" data-i18n="send">Envoyer</button>
-    </form>
-  </section>
-
-  <a href="#top" class="back-to-top">↑</a>
-
-  <footer>
-    &copy; 2025 EXPAIR 3D FRANCE - Tous droits réservés
-  </footer>
-
   <script>
     const translations = {
+      fr: {
+        slogan: "Entreprise basée à Meylan - Captures 3D par scanner LiDAR & drones",
+        learn_more: "En savoir plus ↓",
+        contact: "Contact",
+        mission1_title: "Consignation / Reconstruction après sinistre",
+        mission1_desc: "Relevés 3D détaillés pour accompagner les démarches post-sinistre avec précision et fiabilité.",
+        mission2_title: "Inspection / Intervention en milieux périlleux",
+        mission2_desc: "Interventions en hauteur ou en zones difficilement accessibles à l’aide de drones et de capteurs spécialisés.",
+        mission3_title: "Assistance aux communes en catastrophe naturelle",
+        mission3_desc: "Surveillance et documentation des dégâts avec livrables exploitables pour les décisions d’urgence.",
+        mission4_title: "Maquette / Simulation BIM",
+        mission4_desc: "Création de modèles 3D intégrés aux processus BIM pour une gestion optimale des projets.",
+        partners: "Partenaires / Clients",
+        contact_us: "Nous contacter"
+      },
       en: {
-        "Qui sommes-nous ?": "Who are we?",
-        "Nos missions": "Our Missions",
-        "Consignation / Reconstruction après sinistre": "Damage Assessment / Post-Disaster Reconstruction",
-        "Relevés 3D détaillés pour accompagner les démarches post-sinistre avec précision et fiabilité.": "Detailed 3D scans to support post-disaster procedures with precision and reliability.",
-        "Inspection / Intervention en milieux périlleux": "Inspection / Intervention in Hazardous Environments",
-        "Interventions en hauteur ou en zones difficilement accessibles à l’aide de drones et de capteurs spécialisés.": "Operations in hard-to-reach or dangerous areas using drones and specialized sensors.",
-        "Assistance aux communes en catastrophe naturelle": "Support for Municipalities During Natural Disasters",
-        "Surveillance et documentation des dégâts avec livrables exploitables pour les décisions d’urgence.": "Damage assessment and documentation with actionable reports for emergency decision-making.",
-        "Maquette / Simulation BIM": "BIM Modeling / Simulation",
-        "Création de modèles 3D intégrés aux processus BIM pour une gestion optimale des projets.": "3D modeling integrated into BIM workflows for optimized project management.",
-        "Partenaires & Clients": "Partners & Clients",
-        "Ils nous font confiance :": "They trust us:",
-        "Contact": "Contact",
-        "Vous souhaitez travailler avec nous ? Envoyez-nous un message :": "Want to work with us? Send us a message:",
-        "Envoyer": "Send"
+        slogan: "Company based in Meylan - 3D captures with LiDAR scanner & drones",
+        learn_more: "Learn more ↓",
+        contact: "Contact",
+        mission1_title: "Damage Recording / Reconstruction",
+        mission1_desc: "Detailed 3D surveys to support post-disaster procedures with precision and reliability.",
+        mission2_title: "Inspection / Intervention in Hazardous Environments",
+        mission2_desc: "High-altitude or hard-to-reach interventions using drones and specialized sensors.",
+        mission3_title: "Support for Municipalities in Natural Disasters",
+        mission3_desc: "Damage monitoring and documentation with actionable deliverables for emergency decisions.",
+        mission4_title: "BIM Model / Simulation",
+        mission4_desc: "Creation of 3D models integrated into BIM processes for optimal project management.",
+        partners: "Partners / Clients",
+        contact_us: "Contact Us"
       }
     };
 
     function setLanguage(lang) {
       document.querySelectorAll("[data-i18n]").forEach(el => {
         const key = el.getAttribute("data-i18n");
-        if (translations[lang] && translations[lang][el.innerText]) {
-          el.innerText = translations[lang][el.innerText];
-        } else if (translations[lang] && translations[lang][key]) {
-          el.innerText = translations[lang][key];
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
         }
       });
     }
   </script>
+</head>
+<body>
+  <header id="top">
+    <a href="#contact" class="contact-shortcut" data-i18n="contact">Contact</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 40" fill="none">
+      <text x="0" y="30" fill="#0082C6" font-size="30" font-family="Arial, sans-serif">E3D</text>
+    </svg>
+    <p data-i18n="slogan">Entreprise basée à Meylan - Captures 3D par scanner LiDAR & drones</p>
+    <div class="lang-switcher">
+      <button onclick="setLanguage('fr')">FR</button>
+      <button onclick="setLanguage('en')">EN</button>
+    </div>
+    <a href="#missions" class="scroll-btn" data-i18n="learn_more">En savoir plus ↓</a>
+  </header>
 
+  <section class="missions" id="missions">
+    <div class="mission-block">
+      <h2 data-i18n="mission1_title"></h2>
+      <p data-i18n="mission1_desc"></p>
+      <video autoplay muted loop playsinline>
+        <source src="simulation-video.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="mission-block">
+      <h2 data-i18n="mission2_title"></h2>
+      <p data-i18n="mission2_desc"></p>
+      <img src="inspection.jpg" alt="Inspection">
+    </div>
+    <div class="mission-block">
+      <h2 data-i18n="mission3_title"></h2>
+      <p data-i18n="mission3_desc"></p>
+      <img src="catastrophe.jpg" alt="Catastrophe">
+    </div>
+    <div class="mission-block">
+      <h2 data-i18n="mission4_title"></h2>
+      <p data-i18n="mission4_desc"></p>
+      <img src="bim.jpg" alt="BIM">
+    </div>
+  </section>
+
+  <section class="partenaires" id="partenaires">
+    <h2 data-i18n="partners">Partenaires / Clients</h2>
+    <img src="logo1.png" alt="Partenaire 1">
+    <img src="logo2.png" alt="Partenaire 2">
+    <img src="logo3.png" alt="Partenaire 3">
+  </section>
+
+  <section id="contact">
+    <h2 data-i18n="contact_us">Nous contacter</h2>
+    <form>
+      <input type="text" placeholder="Nom">
+      <input type="email" placeholder="Email">
+      <textarea placeholder="Message"></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </section>
+
+  <button class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑</button>
+
+  <footer>
+    © 2025 EXPAIR 3D FRANCE — Tous droits réservés
+  </footer>
 </body>
 </html>
+
