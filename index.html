@@ -1,5 +1,243 @@
 
 <!DOCTYPE html>
 <html lang="fr">
-<!-- Le contenu HTML est inséré ici -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EXPAIR 3D FRANCE</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    header {
+  position: relative;
+  height: 100vh;
+  text-align: center;
+  color: white;
+  background: url("fond-drone-belledonne.jpg") no-repeat center center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* filtre sombre */
+  z-index: 1;
+}
+
+header * {
+  position: relative;
+  z-index: 2;
+}
+
+
+    header img {
+      max-width: 150px;
+    }
+
+    .lang-switcher {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 3;
+    }
+
+    .lang-switcher button {
+      background: #0082C6;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      margin: 0 5px;
+      cursor: pointer;
+      font-size: 0.9em;
+    }
+
+    h1, h2, h3 {
+      color: #0082C6;
+    }
+
+  h1 {
+  color: #00B8F1;
+  font-size: 3em;
+  margin-top: 20px;
+}
+
+
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .missions ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .missions li {
+      margin-bottom: 20px;
+    }
+
+    .missions li::before {
+      content: "✔️ ";
+      color: #0082C6;
+    }
+
+    .missions img {
+      display: block;
+      width: 100%;
+      max-width: 600px;
+      margin: 10px 0;
+    }
+
+    .projets img, .partenaires img {
+      width: 100px;
+      margin: 10px;
+      vertical-align: middle;
+    }
+
+    form input, form textarea, form button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 1em;
+    }
+
+    form input, form textarea {
+      background: #111;
+      color: #fff;
+      border: 1px solid #0082C6;
+    }
+
+    form button {
+      background-color: #0082C6;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .scroll-btn {
+      display: block;
+      text-align: center;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #0082C6;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      text-decoration: none;
+      z-index: 2;
+      position: relative;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo%20e3D%202.png" alt="Logo EXPAIR 3D FRANCE" />
+    <h1>EXPAIR 3D FRANCE</h1>
+    <p>Entreprise basée à Meylan - Captures 3D par scanner LiDAR & drones</p>
+    <div class="lang-switcher">
+      <button onclick="setLanguage('fr')">FR</button>
+      <button onclick="setLanguage('en')">EN</button>
+    </div>
+    <a href="#about" class="scroll-btn">En savoir plus ↓</a>
+  </header>
+
+  <section id="about">
+    <h2>Qui sommes-nous ?</h2>
+    <p>
+      EXPAIR 3D FRANCE est une entreprise spécialisée dans la captation 3D à la demande à l’aide de drones et de scanners LiDAR.
+      Nous travaillons avec les experts d’assurance, architectes, maîtres d’œuvre, bureaux d’études, et huissiers de justice pour
+      fournir des relevés précis et exploitables dans de nombreux contextes.
+    </p>
+  </section>
+
+  <section class="missions">
+    <h2>Nos missions</h2>
+    <ul>
+      <li>
+        Scan photogrammétrique extérieur
+        <img src="mission1.jpg" alt="Scan photogrammétrique extérieur">
+      </li>
+      <li>
+        Scans 3D d’intérieur
+        <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.png" alt="Scans 3D d’intérieur">
+      </li>
+      <li>
+        Plans 2D et maquettes 3D à partir de nuages de points
+        <img src="mission3.jpg" alt="Plans 2D et maquettes 3D">
+      </li>
+      <li>
+        Visites virtuelles, simulations BIM
+        <img src="mission4.jpg" alt="Visites virtuelles, simulations BIM">
+      </li>
+      <li>
+        DQE pour la reconstruction de bâtiments sinistrés
+        <img src="mission5.jpg" alt="DQE pour la reconstruction">
+      </li>
+    </ul>
+  </section>
+
+  <section class="projets">
+    <h2>Projets réalisés</h2>
+    <p>Voici quelques exemples de nos réalisations :</p>
+    <img src="projet1.jpg" alt="Projet 1">
+    <img src="projet2.jpg" alt="Projet 2">
+    <img src="projet3.jpg" alt="Projet 3">
+  </section>
+
+  <section class="partenaires">
+    <h2>Partenaires & Clients</h2>
+    <p>Ils nous font confiance :</p>
+    <img src="partenaire1.png" alt="Partenaire 1">
+    <img src="partenaire2.png" alt="Partenaire 2">
+    <img src="partenaire3.png" alt="Partenaire 3">
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p>Vous souhaitez travailler avec nous ? Envoyez-nous un message :</p>
+    <form action="mailto:contact@expair3d-france.fr" method="post" enctype="text/plain">
+      <input type="text" name="nom" placeholder="Votre nom" required>
+      <input type="email" name="email" placeholder="Votre email" required>
+      <textarea name="message" rows="5" placeholder="Votre message..." required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 EXPAIR 3D FRANCE - Tous droits réservés
+  </footer>
+
+  <script>
+    function setLanguage(lang) {
+      alert('Fonction de changement de langue non encore activée. Langue sélectionnée : ' + lang);
+    }
+  </script>
+
+</body>
 </html>
