@@ -52,6 +52,19 @@
       font-size: 0.9em;
     }
 
+    .contact-icon {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #0082C6;
+      color: white;
+      padding: 10px;
+      border-radius: 50%;
+      font-size: 1.2em;
+      text-decoration: none;
+      z-index: 3;
+    }
+
     h1, h2, h3 {
       color: #0082C6;
     }
@@ -70,30 +83,16 @@
       transform: translateY(0);
     }
 
-    .missions ul {
-      list-style: none;
-      padding: 0;
+    .missions .mission-block {
+      margin-bottom: 60px;
     }
 
-    .missions li {
-      margin-bottom: 20px;
-    }
-
-    .missions li::before {
-      content: "✔️ ";
-      color: #0082C6;
-    }
-
-    .missions img, .missions video {
+    .missions video, .missions img {
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
       display: block;
-      width: 100%;
-      max-width: 600px;
-      margin: 10px 0;
-    }
-
-    .missions video {
-      width: 100%;
-      height: auto;
+      margin: 20px 0;
     }
 
     .projets img, .partenaires img {
@@ -151,6 +150,7 @@
 <body>
 
   <header>
+    <a href="#contact" class="contact-icon">@</a>
     <img src="logo-e3D-2.png" alt="Logo EXPAIR 3D FRANCE" />
     <p data-fr="Entreprise basée à Meylan - Captures 3D par scanner LiDAR & drones"
        data-en="Company based in Meylan - 3D capture using LiDAR scanners & drones">
@@ -164,16 +164,56 @@
   </header>
 
   <section id="about">
-    <h2>À propos</h2>
-    <p>Contenu de la section à propos...</p>
+    <h2 data-fr="Qui sommes-nous ?" data-en="Who are we?">Qui sommes-nous ?</h2>
+    <p data-fr="EXPAIR 3D FRANCE est une entreprise spécialisée dans la captation 3D à la demande à l’aide de drones et de scanners LiDAR. Nous travaillons avec les experts d’assurance, architectes, maîtres d’œuvre, bureaux d’études, et huissiers de justice pour fournir des relevés précis et exploitables dans de nombreux contextes."
+       data-en="EXPAIR 3D FRANCE is a company specializing in on-demand 3D capture using drones and LiDAR scanners. We work with insurance experts, architects, project managers, engineering firms, and bailiffs to provide accurate and usable data in many contexts.">
+      EXPAIR 3D FRANCE est une entreprise spécialisée dans la captation 3D à la demande à l’aide de drones et de scanners LiDAR. Nous travaillons avec les experts d’assurance, architectes, maîtres d’œuvre, bureaux d’études, et huissiers de justice pour fournir des relevés précis et exploitables dans de nombreux contextes.
+    </p>
   </section>
 
   <section class="missions">
-    <h2>Nos missions</h2>
-    <ul>
-      <li>Mission 1</li>
-      <li>Mission 2</li>
-    </ul>
+    <h2 data-fr="Nos missions" data-en="Our Services">Nos missions</h2>
+
+    <div class="mission-block">
+      <h3>Consignation / Reconstruction après sinistre</h3>
+      <p>Nous intervenons après sinistre pour capturer l'état des lieux et fournir les données nécessaires à la reconstruction.</p>
+      <video src="Simulation-video.mp4" autoplay muted loop></video>
+    </div>
+
+    <div class="mission-block">
+      <h3>Inspection / Intervention milieux périlleux</h3>
+      <p>Nos drones permettent d'intervenir dans des zones difficiles d'accès pour assurer des inspections en toute sécurité.</p>
+      <img src="image-inspection.jpg" alt="Inspection zone périlleuse">
+    </div>
+
+    <div class="mission-block">
+      <h3>Assistance aux communes en catastrophe naturelle</h3>
+      <p>Nous assistons les collectivités locales dans l'évaluation des dégâts causés par les catastrophes naturelles.</p>
+      <img src="image-catastrophe.jpg" alt="Catastrophe naturelle">
+    </div>
+
+    <div class="mission-block">
+      <h3>Maquette / Simulation BIM</h3>
+      <p>Nous transformons les relevés 3D en maquettes numériques exploitables dans les environnements BIM.</p>
+      <img src="image-bim.jpg" alt="Simulation BIM">
+    </div>
+  </section>
+
+  <section class="partenaires">
+    <h2>Partenaires</h2>
+    <img src="partenaire1.png" alt="Partenaire 1">
+    <img src="partenaire2.png" alt="Partenaire 2">
+    <img src="partenaire3.png" alt="Partenaire 3">
+  </section>
+
+  <section id="contact">
+    <h2 data-fr="Nous contacter" data-en="Contact us">Nous contacter</h2>
+    <form action="mailto:contact@expair3d-france.fr" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Nom / Name">
+      <input type="email" name="email" placeholder="Email">
+      <textarea name="message" rows="5" placeholder="Votre message / Your message"></textarea>
+      <button type="submit">Envoyer / Send</button>
+    </form>
   </section>
 
   <footer>
@@ -202,3 +242,4 @@
 
 </body>
 </html>
+
