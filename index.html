@@ -47,7 +47,7 @@
     }
 
     h1, h2, h3 {
-      color: #0072BB;
+      color: #0082C6;
     }
 
     section {
@@ -70,7 +70,7 @@
       color: #0082C6;
     }
 
-    .missions img {
+    .missions img, .missions video {
       display: block;
       width: 100%;
       max-width: 600px;
@@ -155,13 +155,19 @@
   <section class="missions">
     <h2 data-fr="Nos missions" data-en="Our missions">Nos missions</h2>
     <ul>
-      <li data-fr="Scan photogrammétrique extérieur" data-en="Outdoor photogrammetric scanning">
-        Scan photogrammétrique extérieur
-        <img src="la-berarde.png" alt="Scan photogrammétrique extérieur">
+      <li data-fr="Consignation / reconstruction après sinistre" data-en="Documentation / reconstruction after disaster">
+        Consignation / reconstruction après sinistre
+        <p style="font-size: 0.9em; color: #ccc;">
+          Nous intervenons rapidement après un sinistre pour capturer et documenter l’état des lieux, fournissant une base solide pour la reconstruction ou l’expertise assurantielle.
+        </p>
+        <img src="la-berarde.png" alt="Consignation / reconstruction après sinistre">
       </li>
       <li data-fr="Scans 3D d’intérieur" data-en="Interior 3D scans">
         Scans 3D d’intérieur
-        <img src="825858b3-4b6d-45ec-8463-483a47f3e0a1.png" alt="Scans 3D d’intérieur">
+        <video controls>
+          <source src="simulation-video.mp4" type="video/mp4">
+          Votre navigateur ne supporte pas la lecture vidéo.
+        </video>
       </li>
       <li data-fr="Plans 2D et maquettes 3D à partir de nuages de points" data-en="2D plans and 3D models from point clouds">
         Plans 2D et maquettes 3D à partir de nuages de points
