@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -181,4 +182,24 @@
   <section>
     <h2>Contact</h2>
     <p>Vous souhaitez travailler avec nous ? Envoyez-nous un message :</p>
-    <form action="mailto:contact@expair3d-france.fr" method="po
+    <form action="mailto:contact@expair3d-france.fr" method="post" enctype="text/plain">
+      <input type="text" name="nom" placeholder="Votre nom" required>
+      <input type="email" name="email" placeholder="Votre email" required>
+      <textarea name="message" rows="5" placeholder="Votre message..." required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 EXPAIR 3D FRANCE - Tous droits réservés
+  </footer>
+
+  <script>
+    function setLanguage(lang) {
+      document.querySelectorAll('[data-fr]').forEach(el => {
+        el.textContent = el.getAttribute('data-' + lang);
+      });
+    }
+  </script>
+</body>
+</html>
