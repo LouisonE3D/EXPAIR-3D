@@ -43,7 +43,7 @@
     }
 
     header img.logo {
-      width: 200px;
+      width: 300px;
       height: auto;
     }
 
@@ -100,6 +100,12 @@
 
     .missions video:hover, .missions img:hover {
       transform: scale(1.03);
+    }
+
+    .partners img {
+      max-width: 100px;
+      margin: 10px;
+      vertical-align: middle;
     }
 
     .back-to-top {
@@ -171,17 +177,15 @@
   </script>
 </head>
 <body>
-  <!-- Le reste du code reste inchangé -->
-
-  <header id="top">
+  <header>
     <a href="#contact" class="contact-shortcut" data-i18n="contact">Contact</a>
-    <img src="expair3d-quadri.jpg" alt="EXPAIR 3D Logo">
-    <p data-i18n="slogan">Entreprise basée à Meylan - Captures 3D par scanner LiDAR & drones</p>
     <div class="lang-switcher">
       <button onclick="setLanguage('fr')">FR</button>
       <button onclick="setLanguage('en')">EN</button>
     </div>
-    <a href="#missions" class="scroll-btn" data-i18n="learn_more">En savoir plus ↓</a>
+    <img src="logo.png" alt="Logo EXPAIR 3D FRANCE" class="logo">
+    <p data-i18n="slogan"></p>
+    <a href="#missions" data-i18n="learn_more"></a>
   </header>
 
   <section class="missions" id="missions">
@@ -189,50 +193,47 @@
       <h2 data-i18n="mission1_title"></h2>
       <p data-i18n="mission1_desc"></p>
       <video autoplay muted loop playsinline>
-        <source src="simulation-video.mp4" type="video/mp4">
+        <source src="Simulation-video.mp4" type="video/mp4">
       </video>
     </div>
+
     <div class="mission-block">
       <h2 data-i18n="mission2_title"></h2>
       <p data-i18n="mission2_desc"></p>
-      <img src="expair3d-quadri.jpg" alt="Inspection">
+      <img src="inspection.jpg" alt="Inspection">
     </div>
+
     <div class="mission-block">
       <h2 data-i18n="mission3_title"></h2>
       <p data-i18n="mission3_desc"></p>
-      <img src="expair3d-quadri.jpg" alt="Catastrophe">
+      <img src="catastrophe.jpg" alt="Catastrophe naturelle">
     </div>
+
     <div class="mission-block">
       <h2 data-i18n="mission4_title"></h2>
       <p data-i18n="mission4_desc"></p>
-      <img src="expair3d-quadri.jpg" alt="BIM">
+      <img src="bim.jpg" alt="BIM">
     </div>
   </section>
 
-  <section class="partenaires" id="partenaires">
-    <h2 data-i18n="partners">Partenaires / Clients</h2>
-    <img src="expair3d-quadri.jpg" alt="Partenaire 1">
-    <img src="expair3d-quadri.jpg" alt="Partenaire 2">
-    <img src="expair3d-quadri.jpg" alt="Partenaire 3">
+  <section class="partners" id="partners">
+    <h2 data-i18n="partners"></h2>
+    <img src="/mnt/data/6d6fb87f-5bc8-4e96-b69d-80ffc50a2e69.png" alt="Partenaires">
   </section>
 
   <section id="contact">
-    <h2 data-i18n="contact_us">Nous contacter</h2>
-    <form>
-      <input type="text" placeholder="Nom">
-      <input type="email" placeholder="Email">
-      <textarea placeholder="Message"></textarea>
-      <button type="submit">Envoyer</button>
-    </form>
+    <h2 data-i18n="contact_us"></h2>
+    <p>Email : contact@expair3d.fr</p>
+    <p>Téléphone : +33 1 23 45 67 89</p>
+    <p>Adresse : 123 rue de l'Innovation, 38240 Meylan, France</p>
   </section>
 
-  <button class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑</button>
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="back-to-top">↑</button>
 
   <footer>
-    © 2025 EXPAIR 3D FRANCE — Tous droits réservés
+    &copy; 2025 EXPAIR 3D FRANCE. Tous droits réservés.
   </footer>
 </body>
 </html>
-
 
 
