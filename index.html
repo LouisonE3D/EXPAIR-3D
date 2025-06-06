@@ -127,6 +127,16 @@
       font-size: 0.9em;
       color: #888;
     }
+    html, body {
+  height: 100%;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+
+section, header {
+  scroll-snap-align: start;
+}
+
   </style>
   <script>
     const translations = {
