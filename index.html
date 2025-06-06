@@ -102,6 +102,26 @@
       transform: scale(1.03);
     }
 
+    .mission-block {
+      text-align: left;
+      margin-bottom: 60px;
+    }
+
+    .mission-block ul {
+      margin-left: 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .mission-block li {
+      display: inline-block;
+      background: #0082C6;
+      color: white;
+      padding: 8px 12px;
+      margin: 5px;
+      border-radius: 4px;
+    }
+
     .partners img {
       max-width: 100px;
       margin: 10px;
@@ -139,16 +159,6 @@
       font-weight: bold;
     }
 
-    .mission-details {
-      text-align: left;
-      max-width: 700px;
-      margin: 20px auto;
-    }
-
-    .mission-details ul {
-      padding-left: 20px;
-    }
-
     .contact-form {
       margin-top: 30px;
       text-align: left;
@@ -172,55 +182,39 @@
       cursor: pointer;
     }
   </style>
-  <script>
-    const translations = {
-      fr: {
-        slogan: "Entreprise basée à Meylan - Captures 3D par scanner LiDAR & drones",
-        learn_more: "En savoir plus ↓",
-        contact: "Contact",
-        mission1_title: "Consignation / Reconstruction après sinistre",
-        mission1_desc: "Relevés 3D détaillés pour accompagner les démarches post-sinistre avec précision et fiabilité.",
-        mission2_title: "Inspection / Intervention en milieux périlleux",
-        mission2_desc: "Interventions en hauteur ou en zones difficilement accessibles à l’aide de drones et de capteurs spécialisés.",
-        mission3_title: "Assistance aux communes en catastrophe naturelle",
-        mission3_desc: "Surveillance et documentation des dégâts avec livrables exploitables pour les décisions d’urgence.",
-        mission4_title: "Maquette / Simulation BIM",
-        mission4_desc: "Création de modèles 3D intégrés aux processus BIM pour une gestion optimale des projets.",
-        partners: "Partenaires / Clients",
-        contact_us: "Nous contacter"
-      },
-      en: {
-        slogan: "Company based in Meylan - 3D captures with LiDAR scanner & drones",
-        learn_more: "Learn more ↓",
-        contact: "Contact",
-        mission1_title: "Damage Recording / Reconstruction",
-        mission1_desc: "Detailed 3D surveys to support post-disaster procedures with precision and reliability.",
-        mission2_title: "Inspection / Intervention in Hazardous Environments",
-        mission2_desc: "High-altitude or hard-to-reach interventions using drones and specialized sensors.",
-        mission3_title: "Support for Municipalities in Natural Disasters",
-        mission3_desc: "Damage monitoring and documentation with actionable deliverables for emergency decisions.",
-        mission4_title: "BIM Model / Simulation",
-        mission4_desc: "Creation of 3D models integrated into BIM processes for optimal project management.",
-        partners: "Partners / Clients",
-        contact_us: "Contact Us"
-      }
-    };
-
-    function setLanguage(lang) {
-      document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        if (translations[lang][key]) {
-          el.textContent = translations[lang][key];
-        }
-      });
-      document.querySelector('html').setAttribute('lang', lang);
-    }
-
-    window.addEventListener("DOMContentLoaded", () => {
-      setLanguage("fr");
-    });
-  </script>
 </head>
+<body>
+  <section class="missions" id="missions">
+    <div class="mission-block">
+      <h2 data-i18n="mission1_title"></h2>
+      <p data-i18n="mission1_desc"></p>
+      <video autoplay muted loop playsinline>
+        <source src="Simulation video.mp4" type="video/mp4">
+      </video>
+      <ul data-i18n-list="mission1_points"></ul>
+    </div>
+
+    <div class="mission-block">
+      <h2 data-i18n="mission2_title"></h2>
+      <p data-i18n="mission2_desc"></p>
+      <img src="inspection.jpg" alt="Inspection">
+      <ul data-i18n-list="mission2_points"></ul>
+    </div>
+
+    <div class="mission-block">
+      <h2 data-i18n="mission3_title"></h2>
+      <p data-i18n="mission3_desc"></p>
+      <img src="catastrophe.jpg" alt="Catastrophe naturelle">
+      <ul data-i18n-list="mission3_points"></ul>
+    </div>
+
+    <div class="mission-block">
+      <h2 data-i18n="mission4_title"></h2>
+      <p data-i18n="mission4_desc"></p>
+      <img src="bim.jpg" alt="BIM">
+      <ul data-i18n-list="mission4_points"></ul>
+    </div>
+  </section>
 <body>
   <header>
     <a href="#contact" class="contact-shortcut" data-i18n="contact">Contact</a>
@@ -228,7 +222,7 @@
       <button onclick="setLanguage('fr')">FR</button>
       <button onclick="setLanguage('en')">EN</button>
     </div>
-    <img src="logo.png" alt="Logo EXPAIR 3D FRANCE" class="logo">
+    <img src="logo-e3d.png" alt="Logo EXPAIR 3D FRANCE" class="logo">
     <p data-i18n="slogan"></p>
     <a href="#missions" class="learn-more-button" data-i18n="learn_more"></a>
   </header>
