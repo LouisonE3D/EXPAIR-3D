@@ -127,16 +127,50 @@
       font-size: 0.9em;
       color: #888;
     }
-    html, body {
-  height: 100%;
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-}
 
-section, header {
-  scroll-snap-align: start;
-}
+    .learn-more-button {
+      display: inline-block;
+      margin-top: 20px;
+      background-color: #0082C6;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
+    .mission-details {
+      text-align: left;
+      max-width: 700px;
+      margin: 20px auto;
+    }
+
+    .mission-details ul {
+      padding-left: 20px;
+    }
+
+    .contact-form {
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .contact-form button {
+      background-color: #0082C6;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
   </style>
   <script>
     const translations = {
@@ -179,6 +213,7 @@ section, header {
           el.textContent = translations[lang][key];
         }
       });
+      document.querySelector('html').setAttribute('lang', lang);
     }
 
     window.addEventListener("DOMContentLoaded", () => {
@@ -193,48 +228,18 @@ section, header {
       <button onclick="setLanguage('fr')">FR</button>
       <button onclick="setLanguage('en')">EN</button>
     </div>
-    <img src="logo-e3d.png" alt="Logo EXPAIR 3D FRANCE" class="logo">
-
+    <img src="logo.png" alt="Logo EXPAIR 3D FRANCE" class="logo">
     <p data-i18n="slogan"></p>
-    <a href="#missions" data-i18n="learn_more"></a>
+    <a href="#missions" class="learn-more-button" data-i18n="learn_more"></a>
   </header>
 
   <section class="missions" id="missions">
-    <div class="mission-block">
-      <h2 data-i18n="mission1_title"></h2>
-      <p data-i18n="mission1_desc"></p>
-      <video autoplay muted loop playsinline>
-        <source src="Simulation-video.mp4" type="video/mp4">
-      </video>
-    </div>
-
-    <div class="mission-block">
-      <h2 data-i18n="mission2_title"></h2>
-      <p data-i18n="mission2_desc"></p>
-      <img src="la-berarde.png" alt="Inspection">
-    </div>
-
-    <div class="mission-block">
-      <h2 data-i18n="mission3_title"></h2>
-      <p data-i18n="mission3_desc"></p>
-      <img src="la-berarde.png" alt="Catastrophe naturelle">
-    </div>
-
-    <div class="mission-block">
-      <h2 data-i18n="mission4_title"></h2>
-      <p data-i18n="mission4_desc"></p>
-      <img src="la-berarde.png" alt="BIM">
-    </div>
+    <!-- missions ici -->
   </section>
 
   <section class="partners" id="partners">
     <h2 data-i18n="partners"></h2>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
-  <img src="logo1.png" alt="Partenaire 1" style="width: 80px;">
-  <img src="logo2.png" alt="Partenaire 2" style="width: 80px;">
-  <img src="logo3.png" alt="Partenaire 3" style="width: 80px;">
-</div>
-
+    <img src="6d6fb87f-5bc8-4e96-b69d-80ffc50a2e69.png" alt="Partenaires">
   </section>
 
   <section id="contact">
@@ -242,6 +247,14 @@ section, header {
     <p>Email : contact@expair3d.fr</p>
     <p>Téléphone : +33 1 23 45 67 89</p>
     <p>Adresse : 123 rue de l'Innovation, 38240 Meylan, France</p>
+    <div class="contact-form">
+      <form action="mailto:contact@expair3d.fr" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Votre nom" required>
+        <input type="email" name="email" placeholder="Votre email" required>
+        <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
+        <button type="submit">Envoyer</button>
+      </form>
+    </div>
   </section>
 
   <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="back-to-top">↑</button>
@@ -251,5 +264,3 @@ section, header {
   </footer>
 </body>
 </html>
-
-
