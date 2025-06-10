@@ -8,7 +8,6 @@
     html {
       scroll-behavior: smooth;
     }
-
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -16,7 +15,6 @@
       color: #fff;
       line-height: 1.6;
     }
-
     header {
       position: relative;
       height: 100vh;
@@ -27,7 +25,6 @@
       justify-content: center;
       align-items: center;
     }
-
     header::after {
       content: "";
       position: absolute;
@@ -35,24 +32,31 @@
       background-color: rgba(0, 0, 0, 0.6);
       z-index: 1;
     }
-
     header * {
       position: relative;
       z-index: 2;
     }
-
     header img.logo {
       width: 300px;
       height: auto;
     }
-
-    .lang-switcher {
+    .lang-switcher, .contact-shortcut {
       position: absolute;
       top: 20px;
-      right: 20px;
       z-index: 3;
     }
-
+    .lang-switcher {
+      right: 20px;
+    }
+    .contact-shortcut {
+      left: 20px;
+      background: #0082C6;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      text-decoration: none;
+    }
     .lang-switcher button {
       background: #0082C6;
       color: white;
@@ -62,32 +66,16 @@
       cursor: pointer;
       font-size: 0.9em;
     }
-
-    .contact-shortcut {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background: #0082C6;
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      text-decoration: none;
-      font-size: 0.9em;
-      border-radius: 4px;
-      z-index: 3;
-    }
-
     h1, h2, h3 {
       color: #0082C6;
       text-align: center;
     }
-
     section {
       padding: 60px 20px;
       max-width: 900px;
       margin: auto;
+      text-align: center;
     }
-
     .missions video, .missions img {
       width: 100%;
       height: auto;
@@ -95,38 +83,33 @@
       border-radius: 8px;
       transition: transform 0.3s ease-in-out;
     }
-
     .missions video:hover, .missions img:hover {
       transform: scale(1.03);
     }
-
     .mission-block {
-      text-align: left;
+      text-align: center;
       margin-bottom: 60px;
     }
-
     .mission-block ul {
-      margin-left: 0;
-      padding-left: 0;
-      list-style: none;
       display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
       flex-wrap: wrap;
-      gap: 10px;
     }
-
     .mission-block li {
       background: #0082C6;
       color: white;
       padding: 8px 12px;
+      margin: 5px;
       border-radius: 4px;
     }
-
     .partners img {
       max-width: 100px;
       margin: 10px;
       vertical-align: middle;
     }
-
     .back-to-top {
       position: fixed;
       bottom: 30px;
@@ -139,14 +122,12 @@
       cursor: pointer;
       z-index: 100;
     }
-
     footer {
       text-align: center;
       padding: 20px;
       font-size: 0.9em;
       color: #888;
     }
-
     .learn-more-button {
       display: inline-block;
       margin-top: 20px;
@@ -157,12 +138,10 @@
       text-decoration: none;
       font-weight: bold;
     }
-
     .contact-form {
       margin-top: 30px;
       text-align: left;
     }
-
     .contact-form input,
     .contact-form textarea {
       width: 100%;
@@ -171,7 +150,6 @@
       border-radius: 5px;
       border: none;
     }
-
     .contact-form button {
       background-color: #0082C6;
       color: white;
@@ -184,12 +162,12 @@
 </head>
 <body>
   <header>
-    <a href="#contact" class="contact-shortcut" data-i18n="contact">Contact</a>
+    <a href="#contact" class="contact-shortcut">Contact</a>
     <div class="lang-switcher">
       <button onclick="setLanguage('fr')">FR</button>
       <button onclick="setLanguage('en')">EN</button>
     </div>
-    <img src="logo-e3d-2.png" alt="EXPAIR 3D Logo" class="logo">
+    <img src="expair3d-quadri.png" alt="Logo EXPAIR 3D" class="logo">
     <a href="#missions" class="learn-more-button" data-i18n="learn_more">En savoir plus</a>
   </header>
 
@@ -198,84 +176,88 @@
       <h2 data-i18n="mission1_title"></h2>
       <p data-i18n="mission1_desc"></p>
       <video autoplay muted loop playsinline>
-        <source src="simulation-video.mp4" type="video/mp4">
+        <source src="Simulation video.mp4" type="video/mp4">
       </video>
       <ul data-i18n-list="mission1_points"></ul>
     </div>
-
     <div class="mission-block">
       <h2 data-i18n="mission2_title"></h2>
       <p data-i18n="mission2_desc"></p>
-      <img src="plan-2d.png" alt="Inspection">
+      <img src="inspection.jpg" alt="Inspection">
       <ul data-i18n-list="mission2_points"></ul>
     </div>
-
     <div class="mission-block">
       <h2 data-i18n="mission3_title"></h2>
       <p data-i18n="mission3_desc"></p>
-      <img src="la-berarde.png" alt="Catastrophe naturelle">
+      <img src="catastrophe.jpg" alt="Catastrophe naturelle">
       <ul data-i18n-list="mission3_points"></ul>
     </div>
-
     <div class="mission-block">
       <h2 data-i18n="mission4_title"></h2>
       <p data-i18n="mission4_desc"></p>
-      <img src="mavic-2-7870679_1280.jpg" alt="BIM">
+      <img src="bim.jpg" alt="BIM">
       <ul data-i18n-list="mission4_points"></ul>
     </div>
   </section>
 
-  <button class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑</button>
+  <section class="partners" id="partenaires">
+    <h2 data-i18n="partners_title">Partenaires / Clients</h2>
+    <div>
+      <img src="partner1.png" alt="Partenaire 1">
+      <img src="partner2.png" alt="Partenaire 2">
+      <img src="partner3.png" alt="Partenaire 3">
+    </div>
+  </section>
 
   <section id="contact">
-    <h2 data-i18n="contact_title">Contactez-nous</h2>
+    <h2 data-i18n="contact_title">Nous contacter</h2>
     <form class="contact-form">
-      <input type="text" placeholder="Nom" required>
-      <input type="email" placeholder="Email" required>
-      <textarea placeholder="Message" required></textarea>
-      <button type="submit">Envoyer</button>
+      <input type="text" name="name" placeholder="Nom / Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" rows="5" placeholder="Message" required></textarea>
+      <button type="submit" data-i18n="contact_send">Envoyer</button>
     </form>
   </section>
 
-  <footer>
-    &copy; 2025 EXPAIR 3D FRANCE - Tous droits réservés.
-  </footer>
+  <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</button>
 
   <script>
     const translations = {
       fr: {
-        contact: "Contact",
-        learn_more: "En savoir plus",
-        contact_title: "Contactez-nous",
         mission1_title: "Consignation / Reconstruction après sinistre",
-        mission1_desc: "Relevés 3D détaillés pour accompagner les démarches post-sinistre avec précision et fiabilité.",
-        mission1_points: ["partenaria consignation huissier", "réalisation de plans", "chiffrage rapides tout corps d'états", "Collaboration avec archithectes pour permis de construire"],
-        mission2_title: "Inspection / Intervention en milieux périlleux",
-        mission2_desc: "Interventions en hauteur ou en zones difficilement accessibles à l’aide de drones et de capteurs spécialisés.",
-        mission2_points: ["Sécurité renforcée", "Accès zones inaccessibles", "Images HD", "Rapidité des opérations"],
-        mission3_title: "Assistance aux communes en catastrophe naturelle",
-        mission3_desc: "Surveillance et documentation des dégâts avec livrables exploitables pour les décisions d’urgence.",
-        mission3_points: ["grêles", "innondations", "effondrements"],
+        mission1_desc: "Relevés 3D détaillés pour accompagner les démarches post-sinistre.",
+        mission1_points: ["Rapidité d'intervention", "Fichiers exploitables", "Haute précision", "Conformité aux assurances"],
+        mission2_title: "Inspection en milieux périlleux",
+        mission2_desc: "Drones et capteurs pour zones difficiles d'accès.",
+        mission2_points: ["Moins de risques humains", "Photos/vidéos HD", "Analyse en temps réel", "Rapports visuels fiables"],
+        mission3_title: "Assistance en catastrophe naturelle",
+        mission3_desc: "Documentation des dégâts pour décision rapide.",
+        mission3_points: ["Vue d'ensemble", "Relevés topographiques", "Données géolocalisées", "Rapidité de déploiement"],
         mission4_title: "Maquette / Simulation BIM",
-        mission4_desc: "Création de maquettes 3D et simulations intégrés aux processus BIM pour une gestion optimale des projets.",
-        mission4_points: ["Modélisation précise", "Intégration BIM", "Optimisation projet", "Interopérabilité"]
+        mission4_desc: "Modèles 3D pour la gestion de projets BIM.",
+        mission4_points: ["Interopérabilité", "Gain de temps", "Visualisation claire", "Compatibilité logicielle"],
+        partners_title: "Partenaires / Clients",
+        contact_title: "Nous contacter",
+        contact_send: "Envoyer",
+        learn_more: "En savoir plus"
       },
       en: {
-        contact: "Contact",
-        learn_more: "Learn more",
-        contact_title: "Contact Us",
-        mission1_title: "Post-disaster Documentation / Reconstruction",
-        mission1_desc: "Detailed 3D surveys to support post-disaster procedures with precision and reliability.",
-        mission1_points: ["Millimeter precision", "Fast deployment", "Clear, actionable reports", "BIM compatibility"],
-        mission2_title: "Inspection / Intervention in Hazardous Areas",
-        mission2_desc: "High-altitude or difficult access interventions using drones and specialized sensors.",
-        mission2_points: ["Enhanced safety", "Access to hard-to-reach zones", "HD images", "Fast operations"],
-        mission3_title: "Support to Municipalities during Natural Disasters",
-        mission3_desc: "Monitoring and documentation of damages with actionable reports for emergency decisions.",
-        mission3_points: ["Rapid analysis", "Decision support tools", "Emergency response", "Actionable deliverables"],
-        mission4_title: "BIM Modeling / Simulation",
-        mission4_desc: "Creation of 3D models integrated into BIM processes for optimal project management.",
-        mission4_points: ["Precise modeling", "BIM integration", "Project optimization", "Interoperability"]
+        mission1_title: "Securing / Reconstruction after disaster",
+        mission1_desc: "Detailed 3D surveys to support post-disaster procedures.",
+        mission1_points: ["Rapid deployment", "Usable files", "High precision", "Insurance compliant"],
+        mission2_title: "Hazardous environment inspection",
+        mission2_desc: "Drones and sensors for hard-to-reach areas.",
+        mission2_points: ["Reduced human risk", "HD photos/videos", "Live analysis", "Reliable visual reports"],
+        mission3_title: "Assistance during natural disasters",
+        mission3_desc: "Damage documentation for emergency decisions.",
+        mission3_points: ["Overview imagery", "Topographic data", "Geo-located data", "Rapid deployment"],
+        mission4_title: "Modeling / BIM simulation",
+        mission4_desc: "3D models for BIM project management.",
+        mission4_points: ["Interoperability", "Time saving", "Clear visualization", "Software compatibility"],
+        partners_title: "Partners / Clients",
+        contact_title: "Contact us",
+        contact_send: "Send",
+        learn_more: "Learn more"
       }
     };
 
@@ -289,14 +271,18 @@
 
       document.querySelectorAll("[data-i18n-list]").forEach(el => {
         const key = el.getAttribute("data-i18n-list");
+        el.innerHTML = "";
         if (translations[lang][key]) {
-          el.innerHTML = translations[lang][key].map(point => `<li>${point}</li>`).join("");
+          translations[lang][key].forEach(text => {
+            const li = document.createElement("li");
+            li.textContent = text;
+            el.appendChild(li);
+          });
         }
       });
     }
 
-    // Default language
-    setLanguage('fr');
+    setLanguage("fr");
   </script>
 </body>
 </html>
